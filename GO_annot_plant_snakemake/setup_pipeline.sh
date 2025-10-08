@@ -13,7 +13,7 @@ set -euo pipefail
 module load biokit
 module load blast
 module load diamond
-module load python/3.9
+module load python-data
 
 # === 1. Create project structure ===
 mkdir -p ~/plant_annotation/{data,results,envs,logs,scripts}

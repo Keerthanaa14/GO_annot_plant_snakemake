@@ -1,0 +1,15 @@
+samples:
+  sampleA: "input/CloudberryKorea.fasta"
+
+diamond_db: "/projappl/project_2015371/nrplants.dmnd"
+diamond_evalue: 1e-5
+diamond_threads: 16
+diamond_block: 0.3
+diamond_chunks: 8
+top_hits: 10
+
+interproscan_opts: "-appl Pfam,SMART,TIGRFAM,CDD -goterms -iprlookup"
+
+eggnog_mapper_path: "/projappl/project_2015371/eggnog-mapper/emapper.py"
+eggnog_db: "/projappl/project_2015371/eggnog-mapper/data"
+eggnog_opts: "--cpu 16 --tax_scope auto"

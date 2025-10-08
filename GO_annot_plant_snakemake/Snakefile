@@ -1,0 +1,18 @@
+# Snakefile
+configfile: "config.yaml"
+
+SAMPLES = list(config["samples"].keys())
+
+include: "rules/diamond.smk"
+include: "rules/extract_fasta.smk"
+include: "rules/eggnog.smk"
+include: "rules/interproscan.smk"
+include: "rules/combine.smk"
+include: "rules/annotate_diamond_uniprot_online.smk"  # optional
+
+rule all:
+    input:
+        expand("results/combined/{sample}_summary.tsv", sample=SAMPLES),
+        expand("results/fasta/{sample}_top.fasta", sample=SAMPLES),
+        expand("results/eggnog/{sample}.tsv.emapper.annotations", sample=SAMPLES),
+        expand("results/interpro/{sample}.tsv", sample=SAMPLES)
